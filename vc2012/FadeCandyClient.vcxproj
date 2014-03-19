@@ -107,34 +107,34 @@
     <ResourceCompile Include="Resources.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Cinder-Asio\src\ClientInterface.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\DispatcherInterface.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\ServerInterface.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\SessionInterface.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\TcpClient.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\TcpServer.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\TcpSession.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\UdpClient.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\UdpServer.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\UdpSession.cpp" />
-    <ClCompile Include="..\..\..\Cinder-Asio\src\WaitTimer.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\ClientInterface.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\DispatcherInterface.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\ServerInterface.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\SessionInterface.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpClient.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpServer.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpSession.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpClient.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpServer.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpSession.cpp" />
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\WaitTimer.cpp" />
     <ClCompile Include="..\src\FadeCandyClientApp.cpp" />
     <ClCompile Include="..\src\FCEffectRunner.cpp" />
     <ClCompile Include="..\src\FCEffectVisualizer.cpp" />
     <ClCompile Include="..\src\OPCClient.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Cinder-Asio\src\ClientInterface.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\DispatcherInterface.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\ServerInterface.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\SessionInterface.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\TcpClient.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\TcpServer.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\TcpSession.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\UdpClient.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\UdpServer.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\UdpSession.h" />
-    <ClInclude Include="..\..\..\Cinder-Asio\src\WaitTimer.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\ClientInterface.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\DispatcherInterface.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\ServerInterface.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\SessionInterface.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpClient.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpServer.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpSession.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpClient.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpServer.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpSession.h" />
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\WaitTimer.h" />
     <ClInclude Include="..\include\FCEffectRunner.h" />
     <ClInclude Include="..\include\FCEffectVisualizer.h" />
     <ClInclude Include="..\include\OPCClient.h" />
