@@ -39,6 +39,7 @@ FCEffectRunner::~FCEffectRunner()
 }
 void FCEffectRunner::onConnect( TcpSessionRef session ){
 	addDebugLine("OPCClient connected! ");
+	opc->onConnect(session);
 }
 void FCEffectRunner::setMaxFrameRate(float fps)
 {
@@ -52,7 +53,12 @@ bool FCEffectRunner::setServer(std::string hostname, int pPort)
 {
     opc->connect(hostname,pPort);
 	opc->connectConnectEventHandler( &FCEffectRunner::onConnect, this );
+	opc->connectErrorEventHandler( &FCEffectRunner::onError, this );
 	return true;
+}
+void FCEffectRunner::onError( std::string err, size_t bytesTransferred ){
+	addDebugLine( "OPCClient error: " + err);
+	opc->onError(err,bytesTransferred); 
 }
 bool FCEffectRunner::setLayout(std::string pFilename)
 {

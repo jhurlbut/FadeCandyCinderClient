@@ -81,6 +81,8 @@ void FadeCandyClientApp::draw()
 	gl::clear( Color( 0, 0, 0 ) );
 	gl::setViewport( getWindowBounds() );
 	effectRunner->draw();
+
+	//draw debug info
 	gl::setMatricesWindow( getWindowSize() );
 
 	Font mDefault;
@@ -90,8 +92,8 @@ void FadeCandyClientApp::draw()
 				mDefault = Font( "Arial", 16 );
 	#endif
 	gl::enableAlphaBlending();
-		gl::drawStringCentered(effectRunner->getDebugString(),Vec2f(getWindowCenter().x,5),Color(1,1,1),mDefault);
-		gl::disableAlphaBlending();
+	gl::drawStringCentered(effectRunner->getDebugString(),Vec2f(getWindowCenter().x,5),Color(1,1,1),mDefault);
+	gl::disableAlphaBlending();
 }
 
 CINDER_APP_NATIVE( FadeCandyClientApp, RendererGl )

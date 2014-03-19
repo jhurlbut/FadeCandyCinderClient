@@ -80,7 +80,7 @@ private:
 	std::string mDebugMsg;
 	
 	void						onConnect( TcpSessionRef session );
-
+	void						onError( std::string err, size_t bytesTransferred );
     void usage(const char *name);
     void debug();
 };
