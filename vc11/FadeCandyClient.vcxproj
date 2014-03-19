@@ -76,7 +76,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;"$(CINDER_DIR)\include";"$(CINDER_DIR)\boost"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;"$(CINDER_DIR)\include";"$(CINDER_DIR)\boost";"$(CINDER_DIR)\blocks\Cinder-Asio\src"</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;NOMINMAX;_WIN32_WINNT=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />

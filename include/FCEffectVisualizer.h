@@ -18,5 +18,6 @@ public:
 protected:
     
 private:
-    FCEffectRunnerRef mEffectRunner;
+    FCEffectRunnerRef	mEffectRunner;
+	ci::JsonTree			mCurrentLayout;
 };

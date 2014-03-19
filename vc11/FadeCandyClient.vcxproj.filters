@@ -39,37 +39,37 @@
     <ClCompile Include="..\src\OPCClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\ClientInterface.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\ClientInterface.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\DispatcherInterface.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\DispatcherInterface.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\ServerInterface.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\ServerInterface.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\SessionInterface.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\SessionInterface.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\TcpClient.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpClient.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\TcpServer.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpServer.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\TcpSession.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpSession.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\UdpClient.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpClient.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\UdpServer.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpServer.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\UdpSession.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpSession.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Cinder\blocks\Cinder-Asio\src\WaitTimer.cpp">
+    <ClCompile Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\WaitTimer.cpp">
       <Filter>Blocks\Cinder-Asio</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,38 +86,38 @@
     <ClInclude Include="..\include\OPCClient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\ClientInterface.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\ClientInterface.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\DispatcherInterface.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\DispatcherInterface.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\ServerInterface.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\ServerInterface.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\SessionInterface.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\SessionInterface.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\TcpClient.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpClient.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\TcpServer.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpServer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\TcpSession.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\TcpSession.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\UdpClient.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpClient.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\UdpServer.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpServer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\UdpSession.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpSession.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Cinder\blocks\Cinder-Asio\src\WaitTimer.h">
-      <Filter>Blocks\Cinder-Asio</Filter>
+    <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\WaitTimer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
