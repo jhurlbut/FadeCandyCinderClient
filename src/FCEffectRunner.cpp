@@ -45,7 +45,7 @@ bool FCEffectRunner::setLayout(std::string pFilename)
     std::string layoutStr = layout.serialize();
 
     // Set up an empty framebuffer, with OPC packet header
-	int frameBytes = layout.getNumChildren() * 3;
+	int frameBytes = layout.getChildren().size() * 3;
     frameBuffer.resize(sizeof(OPCClient::Header) + frameBytes);
     OPCClient::Header::view(frameBuffer).init(0, opc->SET_PIXEL_COLORS, frameBytes);
 
@@ -229,15 +229,10 @@ ci::JsonTree FCEffect::PixelInfo::get(std::string attribute)
     return layout.getChild(attribute);
 }
 
-double FCEffect::PixelInfo::getNumber(std::string attribute)
-{
-    return layout.getValueForKey<double>(attribute);
-}
-
 double FCEffect::PixelInfo::getArrayNumber(std::string attribute, int index)
 {
 	JsonTree array = get(attribute);
-	float val = array.getValueAtIndex<float>(index);
+	float val = atof(array.getChild(index).getValue().c_str());
 	return val;
 }
 
@@ -249,7 +244,7 @@ void FCEffect::FrameInfo::init(ci::JsonTree layout)
     timeDelta = 0;
     pixels.clear();
 
-    for (unsigned i = 0; i < layout.getNumChildren(); i++) {
+    for (unsigned i = 0; i < layout.getChildren().size(); i++) {
         PixelInfo p(i, layout[i]);
         pixels.push_back(p);
     }
