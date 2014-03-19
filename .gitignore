@@ -1,4 +1,8 @@
 vc2012/Debug/
+vc11/Debug/
+vc11/FadeCandyClient.opensdf
+vc11/FadeCandyClient.sdf
+vc11/Release/
 #ignore thumbnails created by windows
 Thumbs.db
 #Ignore files build by Visual Studio
