@@ -92,7 +92,7 @@ void OPCClient::onError( std::string err, size_t bytesTransferred ){
 	ci::app::console()<< "OPCClient::onError "<< err << endl;
 	//if(err == "An existing connection was forcibly closed by the remote host")
 	mConnecting = false;
-	if(mSession->getSocket()->is_open())
+	if(isConnected())
 		mSession->close();
 }
 void OPCClient::onConnect( TcpSessionRef session ){
