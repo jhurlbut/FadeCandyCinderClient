@@ -1,4 +1,8 @@
 #include "FCEffectRunner.h"
+#include "boost/algorithm/string.hpp"
+#include "boost/format.hpp"
+
+#define MAX_DEBUG 225
 
 using namespace cinder;
 
@@ -7,7 +11,8 @@ FCEffectRunner::FCEffectRunner() : effect(0),
       currentDelay(0),
       filteredTimeDelta(0),
       debugTimer(0),
-      verbose(false)
+      verbose(false),
+	  mDebugMsg("")
 {
 	// Defaults
     setMaxFrameRate(300);
@@ -18,12 +23,22 @@ FCEffectRunner::FCEffectRunner(std::string host, int port) : effect(0),
       currentDelay(0),
       filteredTimeDelta(0),
       debugTimer(0),
-      verbose(false)
+      verbose(false),
+	  mDebugMsg("")
 {
 	// Defaults
     setMaxFrameRate(300);
 	opc = OPCClient::create();
     setServer(host,port);
+	
+}
+FCEffectRunner::~FCEffectRunner() 
+{
+	
+	
+}
+void FCEffectRunner::onConnect( TcpSessionRef session ){
+	addDebugLine("OPCClient connected! ");
 }
 void FCEffectRunner::setMaxFrameRate(float fps)
 {
@@ -36,6 +51,7 @@ void FCEffectRunner::setVerbose(bool verbose)
 bool FCEffectRunner::setServer(std::string hostname, int pPort)
 {
     opc->connect(hostname,pPort);
+	opc->connectConnectEventHandler( &FCEffectRunner::onConnect, this );
 	return true;
 }
 bool FCEffectRunner::setLayout(std::string pFilename)
@@ -95,7 +111,14 @@ float FCEffectRunner::getPercentBusy() const
 }
 void FCEffectRunner::update()
 {
-    doFrame();
+    
+}
+void FCEffectRunner::draw(){
+	doFrame();
+}
+void FCEffectRunner::setVisualizer(FCEffectVisualizerRef pViz)
+{ 
+	mEffectVisualizer = pViz; 
 }
 float FCEffectRunner::doFrame()
 {
@@ -132,7 +155,11 @@ void FCEffectRunner::doFrame(float timeDelta)
 
                 if (p.isMapped()) {
                     effect->shader(rgb, p);
+					//visualize shader result before postprocessing for led output
+					if(mEffectVisualizer)
+						mEffectVisualizer->draw(rgb,p);
                     effect->postProcess(rgb, p);
+					
                 }
 
                 for (unsigned i = 0; i < 3; i++) {
@@ -161,7 +188,7 @@ void FCEffectRunner::doFrame(float timeDelta)
 
     // Periodically output debug info, if we're in verbose mode
     if (verbose) {
-        const float debugInterval = 1.0f;
+        const float debugInterval = 3.0f;
         if ((debugTimer += timeDelta) > debugInterval) {
             debugTimer = fmodf(debugTimer, debugInterval);
             debug();
@@ -173,6 +200,11 @@ void FCEffectRunner::doFrame(float timeDelta)
         sleep(currentDelay * 1e6);
     }
 }
+void FCEffectRunner::addDebugLine(std::string pLine){
+	mDebugMsg.insert(0,pLine + "\n");
+	if(mDebugMsg.length() > MAX_DEBUG)
+		mDebugMsg = mDebugMsg.substr(0,MAX_DEBUG);
+}
 void FCEffectRunner::debug()
 {
     fprintf(stderr, " %7.2f FPS -- %6.2f%% CPU [%.2fms busy, %.2fms idle]\n",
@@ -180,10 +212,11 @@ void FCEffectRunner::debug()
         getPercentBusy(),
         1e3f * getBusyTimePerFrame(),
         1e3f * getIdleTimePerFrame());
-
+	std::string debugLine = boost::str(boost::format(" %7.2f FPS -- %6.2f%% CPU [%.2fms busy, %.2fms idle]\n") %getFrameRate() %getPercentBusy() %(1e3f * getBusyTimePerFrame()) %(1e3f * getIdleTimePerFrame()));
+	addDebugLine(debugLine);
     if (effect) {
-       // FCEffect::DebugInfo d(shared_from_this());
-       //// effect->debug(d);
+       FCEffect::DebugInfo d(shared_from_this());
+       effect->debug(d);
     }
 }
 OPCClientRef FCEffectRunner::getClient()
@@ -208,7 +241,9 @@ void FCEffectRunner::getPixelColor(unsigned index, ci::Vec3f rgb)
         rgb[i] = *(byte++) / 255.0f;
     }
 }
-
+std::string FCEffectRunner::getDebugString() const {
+	return mDebugMsg;
+}
 FCEffect::PixelInfo::PixelInfo(unsigned index, ci::JsonTree layout)
     : index(index), layout(layout)
 {

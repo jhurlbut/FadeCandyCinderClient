@@ -16,8 +16,8 @@ OPCClient::OPCClient( ) : mConnecting(false)
 }
 OPCClient::~OPCClient( ) 
 {
-	mSession->close();
-	mSession.reset();
+	//mSession->close();
+	//mSession.reset();
 	
 }
 void OPCClient::update(){
@@ -58,6 +58,14 @@ bool OPCClient::connect(std::string pHost, int pPort){
 	}
 	return false;
 }
+void OPCClient::connectConnectEventHandler( const std::function<void( TcpSessionRef )>& eventHandler )
+{
+	mClient->connectConnectEventHandler(eventHandler);
+}
+/*void OPCClient::connectErrorEventHandler( const std::function<void( TcpSessionRef )>& eventHandler )
+{
+	mClient->connectErrorEventHandler(eventHandler);
+}*/
 void OPCClient::write(std::string strBuffer)
 {
 	if ( mSession && mSession->getSocket()->is_open() ) {

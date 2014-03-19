@@ -49,6 +49,15 @@ public:
 	bool	tryConnect();
 	void						write(std::string strBuffer);
 	void						write(std::vector<char> &data);
+	
+	template< typename T, typename Y >
+	inline void		connectConnectEventHandler( T eventHandler, Y* eventHandlerObject )
+	{
+		connectConnectEventHandler( std::bind( eventHandler, eventHandlerObject, std::placeholders::_1 ) );
+	}
+
+	void			connectConnectEventHandler( const std::function<void( TcpSessionRef )>& eventHandler );
+
 	struct Header {
         uint8_t channel;
         uint8_t command;

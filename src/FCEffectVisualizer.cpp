@@ -1,29 +1,26 @@
 #include "FCEffectVisualizer.h"
 using namespace cinder;
+ 
+FCEffectVisualizer::FCEffectVisualizer() : mScale(120), mOffset(Vec3f(100,100,0))
+{
+	
+}
 
-FCEffectVisualizer::FCEffectVisualizer(FCEffectRunnerRef effectRunner)
-{
-	setEffectRunner(effectRunner);
-}
-void FCEffectVisualizer::setEffectRunner(FCEffectRunnerRef pRunner)
-{
-	mEffectRunner = pRunner;
-	mCurrentLayout = pRunner->getLayout();
-}
 void FCEffectVisualizer::update() 
 {
 	
 }
-void FCEffectVisualizer::draw() 
+void FCEffectVisualizer::draw(ci::Vec3f& rgb, const FCEffect::PixelInfo& p)
 {
+	mOffset = Vec3f(ci::app::getWindowCenter().x,ci::app::getWindowCenter().y,0);
 	gl::pushMatrices();
-	 gl::color( Color::gray(.5) );
+
+	gl::lineWidth( 2 );
+	 
     gl::enableAlphaBlending();
-	/*if(mCurrentLayout){
-		for(auto pt : mCurrentLayout.getChildren()){
-			
-		}
-	}*/
+	gl::color( Color(rgb.x,rgb.y,rgb.z) );
+	gl::drawSphere(mOffset+p.point*mScale,3);
+	
 	gl::disableAlphaBlending();
 	gl::popMatrices();
 }

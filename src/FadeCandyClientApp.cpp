@@ -46,17 +46,24 @@ class FadeCandyClientApp : public AppNative {
 	void mouseDown( MouseEvent event );	
 	void update();
 	void draw();
-	FCEffectRunnerRef effectRunner;
+	FCEffectRunnerRef effectRunner; 
 };
 
 void FadeCandyClientApp::setup()
 {
+	
+	//point FC to host and port
 	effectRunner = FCEffectRunner::create("localhost",7890);
+	//create instance of our custom effect
 	MyEffectRef e = MyEffect::create();
 	effectRunner->setEffect(boost::dynamic_pointer_cast<FCEffect>( e ));
 	effectRunner->setMaxFrameRate(100);
-    effectRunner->setLayout("layouts/strip64.json");
-
+	effectRunner->setVerbose(true);
+    effectRunner->setLayout("layouts/grid8x8xy.json");
+	//add visualizer to see effect on screen
+	FCEffectVisualizerRef viz = FCEffectVisualizer::create();
+	effectRunner->setVisualizer(viz);
+	
 }
 
 void FadeCandyClientApp::mouseDown( MouseEvent event )
@@ -71,7 +78,20 @@ void FadeCandyClientApp::update()
 void FadeCandyClientApp::draw()
 {
 	// clear out the window with black
-	gl::clear( Color( 0, 0, 0 ) ); 
+	gl::clear( Color( 0, 0, 0 ) );
+	gl::setViewport( getWindowBounds() );
+	effectRunner->draw();
+	gl::setMatricesWindow( getWindowSize() );
+
+	Font mDefault;
+	#if defined( CINDER_COCOA )        
+				mDefault = Font( "Helvetica", 16 );
+	#elif defined( CINDER_MSW )    
+				mDefault = Font( "Arial", 16 );
+	#endif
+	gl::enableAlphaBlending();
+		gl::drawStringCentered(effectRunner->getDebugString(),Vec2f(getWindowCenter().x,5),Color(1,1,1),mDefault);
+		gl::disableAlphaBlending();
 }
 
 CINDER_APP_NATIVE( FadeCandyClientApp, RendererGl )

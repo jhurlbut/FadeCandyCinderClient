@@ -135,6 +135,7 @@
     <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpServer.h" />
     <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\UdpSession.h" />
     <ClInclude Include="$(CINDER_DIR)\blocks\Cinder-Asio\src\WaitTimer.h" />
+    <ClInclude Include="..\include\FCEffect.h" />
     <ClInclude Include="..\include\FCEffectRunner.h" />
     <ClInclude Include="..\include\FCEffectVisualizer.h" />
     <ClInclude Include="..\include\OPCClient.h" />
