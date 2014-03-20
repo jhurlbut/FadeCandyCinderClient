@@ -42,15 +42,16 @@ public:
 };
 
 class FadeCandyClientApp : public AppNative {
-  public:
+public:
 	void setup();
 	void update();
 	void draw();
-	FCEffectRunnerRef effectRunner; 
+	FCEffectRunnerRef effectRunner;
 	MayaCamUI	mMayaCam;
 	// keep track of the mouse
 	Vec2i		mMousePos;
-
+    
+    void prepareSettings( Settings *settings );
 	void mouseMove( MouseEvent event );
 	void mouseDown( MouseEvent event );
 	void mouseDrag( MouseEvent event );
@@ -65,7 +66,7 @@ void FadeCandyClientApp::setup()
 	//create instance of our custom effect
 	MyEffectRef e = MyEffect::create();
 	effectRunner->setEffect(boost::dynamic_pointer_cast<FCEffect>( e ));
-	effectRunner->setMaxFrameRate(100);
+	effectRunner->setMaxFrameRate(400);
 	effectRunner->setVerbose(true);
     effectRunner->setLayout("layouts/strip64.json");
 	//add visualizer to see effect on screen
@@ -78,9 +79,12 @@ void FadeCandyClientApp::setup()
 	cam.setCenterOfInterestPoint( Vec3f(100.0f, 50.0f, 0.0f) );
 	cam.setPerspective( 60.0f, getWindowAspectRatio(), 1.0f, 1000.0f );
 	mMayaCam.setCurrentCam( cam );
-	
+	gl::disableVerticalSync();
 }
-
+void FadeCandyClientApp::prepareSettings( Settings *settings )
+{
+    settings->setFrameRate( 200.0f );
+}
 void FadeCandyClientApp::update()
 {
 	effectRunner->update();
