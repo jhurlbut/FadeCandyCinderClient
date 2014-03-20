@@ -15,8 +15,6 @@ void FCEffectVisualizer::draw(ci::Vec3f& rgb, const FCEffect::PixelInfo& p)
 	mOffset = Vec3f(ci::app::getWindowCenter().x,ci::app::getWindowCenter().y,0);
 	gl::pushMatrices();
 
-	gl::lineWidth( 2 );
-	 
     gl::enableAlphaBlending();
 	gl::color( Color(rgb.x,rgb.y,rgb.z) );
 	gl::drawSphere(mOffset+p.point*mScale,3);
