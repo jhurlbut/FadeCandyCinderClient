@@ -1,7 +1,4 @@
-vc2012/Debug/
 vc11/Debug/
-vc11/FadeCandyClient.opensdf
-vc11/FadeCandyClient.sdf
 vc11/Release/
 #ignore thumbnails created by windows
 Thumbs.db
@@ -26,3 +23,6 @@ Thumbs.db
 *.dll
 *.lib
 *.sbr
+*.tlog
+*.sdf
+*.opensdf

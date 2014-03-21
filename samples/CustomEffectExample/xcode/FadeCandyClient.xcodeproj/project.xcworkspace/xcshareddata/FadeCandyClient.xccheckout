@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BD42AF55-061A-417D-8C6E-DF9E8F7A6988</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FadeCandyClient</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>011DFD3B-B13D-49C2-A728-C246D89E39F0</key>
+		<string>https://github.com/cinder/Cinder.git</string>
+		<key>C262937A-B645-442D-89A8-C51B97CF3166</key>
+		<string>https://github.com/BanTheRewind/Cinder-Asio.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>projects/FadeCandyClient/xcode/FadeCandyClient.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>011DFD3B-B13D-49C2-A728-C246D89E39F0</key>
+		<string>../../../../..</string>
+		<key>C262937A-B645-442D-89A8-C51B97CF3166</key>
+		<string>../../../../../blocks/Cinder-Asio</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cinder/Cinder.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>011DFD3B-B13D-49C2-A728-C246D89E39F0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>011DFD3B-B13D-49C2-A728-C246D89E39F0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cinder</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C262937A-B645-442D-89A8-C51B97CF3166</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cinder-Asio</string>
+		</dict>
+	</array>
+</dict>
+</plist>
