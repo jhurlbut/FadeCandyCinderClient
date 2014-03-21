@@ -20,25 +20,26 @@ public:
         return ( MyEffectRef )( new MyEffect() );
     }
     MyEffect()
-        : cycle (0) {
+        : time (0) {
 		mPerlin = Perlin();
 	}
 
-    float cycle;
+    float time;
 	Perlin					mPerlin;
 
     void beginFrame(const FrameInfo& f)
     {
-        const float speed = 10.0;
-        cycle = fmodf(cycle + f.timeDelta * speed, 2 * M_PI);
+        const float speed = 1.0;
+        time += f.timeDelta * speed;
     }
 
     void shader(ci::Vec3f& rgb, const PixelInfo& p)
     {
         float distance = p.point.length();
-        float wave = sinf(3.0 * distance - cycle) + mPerlin.fBm(p.point);
-		rgb = rgbToHSV(Color(0.2, 0.3, wave));
-    }
+		Vec3f timepoint = p.point + Vec3f(0,0,time);
+        float noiseval = mPerlin.fBm(timepoint);
+		rgb = rgbToHSV(Color(0.2, 0.3, noiseval));
+	}
 };
 
 class FadeCandyClientApp : public AppNative {
@@ -68,15 +69,15 @@ void FadeCandyClientApp::setup()
 	effectRunner->setEffect(boost::dynamic_pointer_cast<FCEffect>( e ));
 	effectRunner->setMaxFrameRate(400);
 	effectRunner->setVerbose(true);
-    effectRunner->setLayout("layouts/strip64.json");
+    effectRunner->setLayout("layouts/grid32x16y.json");
 	//add visualizer to see effect on screen
 	FCEffectVisualizerRef viz = FCEffectVisualizer::create();
 	effectRunner->setVisualizer(viz);
 	
 	// set up the camera
 	CameraPersp cam;
-	cam.setEyePoint( Vec3f(0.0f, -10.0f, 0.0f) );
-	cam.setCenterOfInterestPoint( Vec3f(100.0f, 50.0f, 0.0f) );
+	cam.setEyePoint( Vec3f(300.0f, 250.f, -500.0f) );
+	cam.setCenterOfInterestPoint( Vec3f(300.0f, 200.0f, 0.0f) );
 	cam.setPerspective( 60.0f, getWindowAspectRatio(), 1.0f, 1000.0f );
 	mMayaCam.setCurrentCam( cam );
 	gl::disableVerticalSync();
@@ -110,6 +111,8 @@ void FadeCandyClientApp::draw()
 	#endif
 	gl::enableAlphaBlending();
 	gl::drawStringCentered(effectRunner->getDebugString(),Vec2f(getWindowCenter().x,5),Color(1,1,1),mDefault);
+	gl::drawString(toString(mMayaCam.getCamera().getEyePoint()),Vec2f(0,0));
+	gl::drawString(toString(mMayaCam.getCamera().getCenterOfInterestPoint()),Vec2f(0,20));
 	gl::disableAlphaBlending();
 }
 //camera interaction
