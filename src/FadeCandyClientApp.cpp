@@ -83,7 +83,7 @@ void FadeCandyClientApp::setup()
 }
 void FadeCandyClientApp::prepareSettings( Settings *settings )
 {
-    settings->setFrameRate( 200.0f );
+    settings->setFrameRate( 300.0f );
 }
 void FadeCandyClientApp::update()
 {
