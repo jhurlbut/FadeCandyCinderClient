@@ -34,7 +34,7 @@ public:
 	void setVisualizer(FCEffectVisualizerRef pViz);
     void setMaxFrameRate(float fps);
     void setVerbose(bool verbose = true);
-	
+	void setChannelNum(int pChan){channelNum = pChan;}
     bool hasLayout() const;
     ci::JsonTree getLayout() const;
     FCEffectRef getEffect();
@@ -76,6 +76,7 @@ private:
     float debugTimer;
     bool verbose;
     float lastElapsedSeconds;
+	int		channelNum;
 
 	std::string mDebugMsg;
 	
