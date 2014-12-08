@@ -1,7 +1,7 @@
 #include "OPCClient.h"
 #include "cinder/app/App.h"
 #include "cinder/Utilities.h"
-#include "Resources.h"
+//#include "Resources.h"
 
 using namespace std;
 using namespace cinder;

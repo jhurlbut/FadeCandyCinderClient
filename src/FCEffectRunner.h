@@ -29,7 +29,7 @@ public:
 	~FCEffectRunner();
 	FCEffectRunner(std::string host, int port);
     bool setServer(std::string hostname, int pPort);
-    bool setLayout(std::string pFilename);
+    bool setLayout(std::string pFilename, int pChannel);
     void setEffect(FCEffectRef pEffect);
 	void setVisualizer(FCEffectVisualizerRef pViz);
     void setMaxFrameRate(float fps);

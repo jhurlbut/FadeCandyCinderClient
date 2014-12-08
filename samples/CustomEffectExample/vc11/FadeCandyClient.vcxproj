@@ -50,7 +50,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;$(CINDER_DIR)\include;$(CINDER_DIR)\boost;$(CINDER_DIR)\blocks\Cinder-Asio\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\src;$(CINDER_DIR)\include;$(CINDER_DIR)\boost;$(CINDER_DIR)\blocks\Cinder-Asio\src</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NOMINMAX;_WIN32_WINNT=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -64,8 +64,8 @@
       <AdditionalIncludeDirectories>"$(CINDER_DIR)\include";..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>cinder_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"$(CINDER_DIR)\lib";"$(CINDER_DIR)\lib\msw"</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cinder-$(PlatformToolset)_d.lib;..\libs\Spout32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>"$(CINDER_DIR)\lib\msw\$(PlatformTarget)"</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -76,7 +76,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;"$(CINDER_DIR)\include";"$(CINDER_DIR)\boost";"$(CINDER_DIR)\blocks\Cinder-Asio\src";"$(CINDER_DIR)\blocks\FadeCandyClient\src"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\..\src;"$(CINDER_DIR)\include";"$(CINDER_DIR)\boost";"$(CINDER_DIR)\blocks\Cinder-Asio\src";"$(CINDER_DIR)\blocks\FadeCandyClient\src"</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;NOMINMAX;_WIN32_WINNT=0x0502;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader />
@@ -91,8 +91,8 @@
       <AdditionalIncludeDirectories>"$(CINDER_DIR)\include";..\include</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>cinder.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"$(CINDER_DIR)\lib";"$(CINDER_DIR)\lib\msw"</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cinder-$(PlatformToolset).lib;..\libs\Spout32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>"$(CINDER_DIR)\lib\msw\$(PlatformTarget)"</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -140,6 +140,7 @@
     <ClInclude Include="..\..\..\src\FCEffectVisualizer.h" />
     <ClInclude Include="..\..\..\src\OPCClient.h" />
     <ClInclude Include="..\include\Resources.h" />
+    <ClInclude Include="..\include\Spout.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

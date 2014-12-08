@@ -60,7 +60,7 @@ void FCEffectRunner::onError( std::string err, size_t bytesTransferred ){
 	addDebugLine( "OPCClient error: " + err);
 	opc->onError(err,bytesTransferred); 
 }
-bool FCEffectRunner::setLayout(std::string pFilename)
+bool FCEffectRunner::setLayout(std::string pFilename, int pChannel)
 {
    
 	layout = ci::JsonTree(ci::app::loadAsset(pFilename));
@@ -69,7 +69,7 @@ bool FCEffectRunner::setLayout(std::string pFilename)
     // Set up an empty framebuffer, with OPC packet header
 	int frameBytes = layout.getChildren().size() * 3;
     frameBuffer.resize(sizeof(OPCClient::Header) + frameBytes);
-    OPCClient::Header::view(frameBuffer).init(0, opc->SET_PIXEL_COLORS, frameBytes);
+    OPCClient::Header::view(frameBuffer).init(pChannel, opc->SET_PIXEL_COLORS, frameBytes);
 
     // Init pixel info
     frameInfo.init(layout);
